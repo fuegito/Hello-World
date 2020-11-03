@@ -1,0 +1,4 @@
+---
+- name: create deployment for hello-world operator
+  k8s:
+    definition:

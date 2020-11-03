@@ -1,3 +1,33 @@
 - name: create route hello-world operator
   k8s:
     definition:
+      kind: Service
+      apiVersion: v1
+      metadata:
+        annotations:
+          openshift.io/generated-by: OpenShiftWebConsole
+        name: hello-world-nginx
+        namespace: hello-world
+        ownerReferences:
+          - apiVersion: apps.example.com/v1alpha1
+            kind: Hw
+            name: example-hw
+            uid: 0d4ded21-0a13-485e-9a20-d83a5373d3e5
+        labels:
+          app: hello-world-nginx
+          app.kubernetes.io/component: hello-world-nginx
+          app.kubernetes.io/instance: hello-world-nginx
+          app.kubernetes.io/part-of: hello-world-nginx-app
+          app.openshift.io/runtime-version: latest
+      spec:
+        ports:
+          - name: 8080-tcp
+            protocol: TCP
+            port: 8080
+            targetPort: 8080
+        selector:
+          app: hello-world-nginx
+          deploymentconfig: hello-world-nginx
+        clusterIP: 172.29.97.212
+        type: ClusterIP
+        sessionAffinity: None

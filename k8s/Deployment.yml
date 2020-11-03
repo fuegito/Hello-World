@@ -29,8 +29,6 @@ spec:
       labels:
         app: hello-world-nginx
         deploymentconfig: hello-world-nginx
-      annotations:
-        openshift.io/generated-by: OpenShiftWebConsole
     spec:
       containers:
         - name: hello-world-nginx

@@ -2,3 +2,58 @@
 - name: create deployment for hello-world operator
   k8s:
     definition:
+      kind: Deployment
+      apiVersion: apps/v1
+      metadata:
+        annotations:
+          alpha.image.policy.openshift.io/resolve-names: "*"
+          deployment.kubernetes.io/revision: "1"
+          openshift.io/generated-by: OpenShiftWebConsole
+        name: hello-world-nginx
+        namespace: hello-world
+        ownerReferences:
+          - apiVersion: apps.example.com/v1alpha1
+            kind: Hw
+            name: example-hw
+            uid: 0d4ded21-0a13-485e-9a20-d83a5373d3e5
+        labels:
+          app: hello-world-nginx
+          app.kubernetes.io/component: hello-world-nginx
+          app.kubernetes.io/instance: hello-world-nginx
+          app.kubernetes.io/part-of: hello-world-nginx-app
+          app.openshift.io/runtime-namespace: hello-world
+      spec:
+        replicas: 1
+        selector:
+          matchLabels:
+            app: hello-world-nginx
+        template:
+          metadata:
+            creationTimestamp: null
+            labels:
+              app: hello-world-nginx
+              deploymentconfig: hello-world-nginx
+          spec:
+            containers:
+              - name: hello-world-nginx
+                image: >-
+                  quay.io/redhattraining/hello-world-nginx@sha256:7f99ece5f39bf8d5d76a43cd9104a8d0a39f7135821b94bc1ebdc39cdc6dd63b
+                ports:
+                  - containerPort: 8080
+                    protocol: TCP
+                resources: {}
+                terminationMessagePath: /dev/termination-log
+                terminationMessagePolicy: File
+                imagePullPolicy: Always
+            restartPolicy: Always
+            terminationGracePeriodSeconds: 30
+            dnsPolicy: ClusterFirst
+            securityContext: {}
+            schedulerName: default-scheduler
+        strategy:
+          type: RollingUpdate
+          rollingUpdate:
+            maxUnavailable: 25%
+            maxSurge: 25%
+        revisionHistoryLimit: 10
+        progressDeadlineSeconds: 600

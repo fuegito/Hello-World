@@ -2,56 +2,8 @@ kind: Route
 apiVersion: route.openshift.io/v1
 metadata:
   annotations:
-    openshift.io/host.generated: 'true'
-  selfLink: /apis/route.openshift.io/v1/namespaces/hello-world/routes/hello-world-nginx
-  resourceVersion: '4877116'
+    openshift.io/host.generated: "true"
   name: hello-world-nginx
-  uid: 2689a271-7561-45c8-b418-fc373fe5072b
-  creationTimestamp: '2020-11-02T09:42:32Z'
-  managedFields:
-    - manager: Swagger-Codegen
-      operation: Update
-      apiVersion: route.openshift.io/v1
-      time: '2020-11-02T09:42:32Z'
-      fieldsType: FieldsV1
-      fieldsV1:
-        'f:metadata':
-          'f:annotations':
-            .: {}
-            'f:openshift.io/host.generated': {}
-          'f:labels':
-            .: {}
-            'f:app': {}
-            'f:app.kubernetes.io/component': {}
-            'f:app.kubernetes.io/instance': {}
-            'f:app.kubernetes.io/part-of': {}
-            'f:app.openshift.io/runtime-version': {}
-          'f:ownerReferences':
-            .: {}
-            'k:{"uid":"0d4ded21-0a13-485e-9a20-d83a5373d3e5"}':
-              .: {}
-              'f:apiVersion': {}
-              'f:kind': {}
-              'f:name': {}
-              'f:uid': {}
-        'f:spec':
-          'f:host': {}
-          'f:port':
-            .: {}
-            'f:targetPort': {}
-          'f:to':
-            'f:kind': {}
-            'f:name': {}
-            'f:weight': {}
-          'f:wildcardPolicy': {}
-    - manager: openshift-router
-      operation: Update
-      apiVersion: route.openshift.io/v1
-      time: '2020-11-02T09:42:32Z'
-      fieldsType: FieldsV1
-      fieldsV1:
-        'f:status':
-          'f:ingress': {}
   namespace: hello-world
   ownerReferences:
     - apiVersion: apps.example.com/v1alpha1
@@ -73,13 +25,3 @@ spec:
   port:
     targetPort: 8080-tcp
   wildcardPolicy: None
-status:
-  ingress:
-    - host: hello-world-nginx-hello-world.apps.ow.ocp-pg.viada.de
-      routerName: default
-      conditions:
-        - type: Admitted
-          status: 'True'
-          lastTransitionTime: '2020-11-02T09:42:32Z'
-      wildcardPolicy: None
-      routerCanonicalHostname: apps.ow.ocp-pg.viada.de

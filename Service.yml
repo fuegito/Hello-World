@@ -3,52 +3,7 @@ apiVersion: v1
 metadata:
   annotations:
     openshift.io/generated-by: OpenShiftWebConsole
-  selfLink: /api/v1/namespaces/hello-world/services/hello-world-nginx
-  resourceVersion: '4877094'
   name: hello-world-nginx
-  uid: a335fe12-8e1d-499a-8117-9fbbe24294b6
-  creationTimestamp: '2020-11-02T09:42:30Z'
-  managedFields:
-    - manager: Swagger-Codegen
-      operation: Update
-      apiVersion: v1
-      time: '2020-11-02T09:42:30Z'
-      fieldsType: FieldsV1
-      fieldsV1:
-        'f:metadata':
-          'f:annotations':
-            .: {}
-            'f:openshift.io/generated-by': {}
-          'f:labels':
-            .: {}
-            'f:app': {}
-            'f:app.kubernetes.io/component': {}
-            'f:app.kubernetes.io/instance': {}
-            'f:app.kubernetes.io/part-of': {}
-            'f:app.openshift.io/runtime-version': {}
-          'f:ownerReferences':
-            .: {}
-            'k:{"uid":"0d4ded21-0a13-485e-9a20-d83a5373d3e5"}':
-              .: {}
-              'f:apiVersion': {}
-              'f:kind': {}
-              'f:name': {}
-              'f:uid': {}
-        'f:spec':
-          'f:ports':
-            .: {}
-            'k:{"port":8080,"protocol":"TCP"}':
-              .: {}
-              'f:name': {}
-              'f:port': {}
-              'f:protocol': {}
-              'f:targetPort': {}
-          'f:selector':
-            .: {}
-            'f:app': {}
-            'f:deploymentconfig': {}
-          'f:sessionAffinity': {}
-          'f:type': {}
   namespace: hello-world
   ownerReferences:
     - apiVersion: apps.example.com/v1alpha1
@@ -73,5 +28,3 @@ spec:
   clusterIP: 172.29.97.212
   type: ClusterIP
   sessionAffinity: None
-status:
-  loadBalancer: {}

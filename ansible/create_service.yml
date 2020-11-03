@@ -5,15 +5,8 @@
       kind: Service
       apiVersion: v1
       metadata:
-        annotations:
-          openshift.io/generated-by: OpenShiftWebConsole
         name: hello-world-nginx
         namespace: hello-world
-        ownerReferences:
-          - apiVersion: apps.example.com/v1alpha1
-            kind: Hw
-            name: example-hw
-            uid: 0d4ded21-0a13-485e-9a20-d83a5373d3e5
         labels:
           app: hello-world-nginx
           app.kubernetes.io/component: hello-world-nginx

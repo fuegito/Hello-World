@@ -1,3 +1,4 @@
+---
 - name: create route hello-world operator
   k8s:
     definition:
